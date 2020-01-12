@@ -16,4 +16,9 @@ $(document).ready(function () {
         $("#showSearch i").toggleClass("fa-times");
         $('.ba-search-form').toggleClass('open');
     })
+
+    $('.ba-dropdown-btn').on('click', function(){
+        $(this).toggleClass('ba-dropdown-btn_open');
+        $(this).next('.ba-dropdown').toggle();
+    })
 })
