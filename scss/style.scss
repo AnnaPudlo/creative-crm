@@ -1,9 +1,151 @@
-.ba-menu{
-    display: flex;
-    align-items: center;
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
-.ba-menu__link {
-    color: inherit;
-    text-decoration: none;
+button {
+    background: none;
+    border: none;
+}
+
+.btn {
+    background-color: $primaryColor;
+    min-width: 100px;
+    padding: 0 1em;
+
+    &:hover {
+        @include buttonHover;
+    }
+}
+
+.ba-main-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: 991px) {
+        min-height: 100vh;
+    }
+}
+
+.ba-user {
+    display: flex;
+    align-items: center;
+
+    &__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &__photo {
+        display: inline-block;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.ba-toolbar {
+    padding: 15px 0;
+    border: 2px solid #f8f8f8;
+    position: relative;
+
+    &-wrapper {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.ba-breadcrumbs {
+    margin-right: auto;
+    &__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        display: flex;
+        a, span {
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        a {
+            color: $primaryColor;
+        }
+
+        span {
+            color: $secondaryColor;
+        }
+    }
+
+    &__item + &__item {
+        &:before {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 1.25rem;
+            content: '\f105';
+            margin: 0 0.75rem 0 1rem;
+            display: inline-block;
+        }
+    }
+}
+
+.ba-search {
+    margin-left: auto;
+
+    &-form {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        display: flex;
+        background-color: #fff;
+        transform: translateX(-100%);
+        visibility: hidden;
+        transition: transform 0.3s, box-shadow 0.5s;
+
+        &.open {
+            top: 100%;
+            transform: translateX(0);
+            visibility: visible;
+            box-shadow: 0 9px 20px -6px rgba(0,0,0,0.5);
+        }
+
+        @media screen and (min-width: 991px) {
+            position: static;
+            transform: none;
+            padding: 0;
+            box-shadow: none;
+            visibility: visible;
+        }
+    }
+
+    &__btn{
+        margin-left: auto;
+    }
+}
+
+.ba-notification {
+    &__btn {
+        position: relative;
+    }
+}
+
+.ba-badge {
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    background-color: #f14e95;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 0.75rem;
+    right: -0.25rem;
+    top: -0.25rem;
 }
